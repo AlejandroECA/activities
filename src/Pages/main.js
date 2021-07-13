@@ -22,17 +22,19 @@ const Main = () => {
 
 
     return (
-        <globalState.Provider value={state}>
-            <globalDispatch.Provider value={dispatch}>
+        <div style={{margin:'20px '}}>
+            <globalState.Provider value={state}>
+                <globalDispatch.Provider value={dispatch}>
 
-                <Switch>
-                    <Route exact path='/' component={Info} />
-                    <Route path='/UserInfo' component={UserInfo} />
-                    <Route path='/reserve' component={Reserve} />
-                </Switch>
+                    <Switch>
+                        <Route exact path='/' component={Info} />
+                        <Route path='/UserInfo' component={UserInfo} />
+                        <Route path='/reserve' component={Reserve} />
+                    </Switch>
 
-            </globalDispatch.Provider>
-        </globalState.Provider>
+                </globalDispatch.Provider>
+            </globalState.Provider>
+        </div>
     );
     
 }

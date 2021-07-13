@@ -1,4 +1,7 @@
 import React, {useReducer} from 'react'
+import {Link} from 'react-router-dom'
+
+import AgGridComponent from '../Components/ag-grid/agGrid.component'
 
 const narcisisticCalc =  (number)=>{
 
@@ -25,10 +28,23 @@ const squareEachNumbers = (numberToSquare) => {
 }
 
 const divisorArray = (numberDivisor) => {
-    let totalArray = []
-    let arrayOfNumber = numberDivisor.toString().split('')
+
+    let finalArray = []
+        
+    let i = 2
+
+    while (i <= numberDivisor){
+        if((numberDivisor % i)===0){
+            finalArray = finalArray.concat(i)
+        }
+        i+=1
+    }
+
+    if(finalArray.length-1 !=0){
+        finalArray.splice(-1,1)
+    }
     
-    return totalArray
+    return finalArray
 
 }
 
@@ -82,8 +98,10 @@ const Reserve = () => {
 
     return(
         <div>
-            <h1>This is the Narcisistiiiic!!!</h1>
+            <h1> 🔥🔥  CHALLENGEEES!!! 🔥🔥 </h1>
+
             <div>
+                <h1 style={{marginTop:'40px'}}> Narcisist </h1>
                 <label>Number: </label>
                 <input id ='name' type= 'number' name='number' onKeyDown= { e => {      
                     if(e.key === 'Enter'){
@@ -134,6 +152,17 @@ const Reserve = () => {
                 }</h5>
 
             </div>
+
+            <div>
+                <AgGridComponent />
+            </div>
+
+            <div style={{marginTop:'20px'}}>
+                <Link to="/" >
+                    <button type="button">Back</button>
+                </Link>  
+            </div>
+
         </div>
     )
 }
